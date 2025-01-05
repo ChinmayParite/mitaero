@@ -1,0 +1,325 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f9;
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #888 #f1f1f1; /* For Firefox */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+/* Apply custom scrollbar for Webkit-based browsers */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: black; /* Background track of the scrollbar */
+    border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #00BFFF, #000080); /* Blue lightsaber gradient */
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #1E90FF, #0000CD); /* Brighter blue when hovered */
+}
+
+/* Top Nav for Crowdfunding */
+.top-nav {
+    background-color: #ffc107; /* Bright yellow for visibility */
+    text-align: center;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    position : fixed;
+    z-index: 1000;
+    width: 100%;
+}
+
+.top-nav .crowdfund-link {
+    color: #004c91; /* Match primary theme */
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #004c91;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: white;
+    transition: all 0.3s;
+}
+
+.top-nav .crowdfund-link:hover {
+    color: white;
+    background-color: #004c91;
+    border-color: #004c91;
+}
+
+
+/* Navbar */
+nav {
+    position: fixed;
+    width: 100%;
+    top: 40px;
+    left: 0;
+    padding: 10px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    backdrop-filter: none; /* No blur by default */
+    transition: backdrop-filter 0.3s ease; /* Smooth transition for blur effect */
+}
+
+.nav .logo img {
+    height: 900x;
+    width: 110px;
+    margin-left: 20px;
+    z-index: 1000;
+    border-radius: 13px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin-right: 20px;
+    margin-top: -1px;
+}
+
+.nav-links li {
+    margin: 0 15px;
+    position: relative;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s;
+    font-size: 17px;
+}
+
+.nav-links a:hover {
+    color: #00c8ff;
+}
+
+/* Dropdown Button */
+.dropdown .dropbtn {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+}
+
+.dropdown .dropbtn i {
+    margin-left: 5px;
+    font-size: 17px;
+}
+
+/* Dropdown Content */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 190px;
+    box-shadow: 0 11px 20px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    margin-left: 5px;
+    border-radius: 4px;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 15px;
+}
+
+/* Show Dropdown on Hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+    border-radius: 4px;
+}
+
+/* Dropdown Item Hover Effect */
+.dropdown-content a:hover {
+    background-color: #f0f0f0;
+    border-radius: 4px;
+}
+
+/* Icon Rotation Effect on Hover */
+.dropdown:hover .dropbtn i {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+    border-radius: 4px;
+}
+
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger-menu span {
+    background: white;
+    height: 3px;
+    margin: 3px 0;
+    width: 25px;
+}
+
+/* Hero Section */
+
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background:
+        url('aero_grp.jpg'); /* Your background image */
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    color: white;
+    padding: 20px;
+}
+
+.hero-content {
+    max-width: 50%;
+    text-align: left;
+}
+
+.cta-buttons button {
+    padding: 10px 20px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #00c8ff;
+    color: white;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.cta-buttons button:hover {
+    background-color: #004c91;
+}
+
+h1{
+    font-size: 100px;
+    margin-bottom: -50px;
+    margin-left: -150px;
+}
+.hero-content p{
+    font-size: 40px;
+    margin-left: -100px;
+    font-weight: bold;
+}
+span{
+    color:#00BFFF;
+}
+/* About Section */
+#about {
+    padding: 60px 20px;
+    background-color: #f4f4f9;
+}
+
+.team {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.team-member {
+    text-align: center;
+}
+
+.team-member img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+/* Projects Section */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.project-card {
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Footer */
+footer {
+    background-color: #004c91;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+#home {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cta-buttons button {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .navbar .nav-links {
+        display: none;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .navbar.open .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #004c91;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+}
