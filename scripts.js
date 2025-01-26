@@ -4,6 +4,8 @@ document.querySelector('.hamburger-menu').addEventListener('click', () => {
     navLinks.classList.toggle('active');
 });
 
+    document.addEventListener("contextmenu", (e) => e.preventDefault());
+
 // Smooth Scrolling
 document.querySelectorAll('.nav-links a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
