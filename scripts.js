@@ -5,6 +5,22 @@ document.querySelector('.hamburger-menu').addEventListener('click', () => {
 });
 
     document.addEventListener("contextmenu", (e) => e.preventDefault());
+ document.addEventListener("keydown", function (e) {
+        // Disable F12
+        if (e.key === "F12") {
+            e.preventDefault();
+        }
+
+        // Disable Ctrl+Shift+I (DevTools), Ctrl+U (View Source), Ctrl+Shift+J (Console)
+        if (e.ctrlKey && (e.key === "i" || e.key === "u" || e.key === "j")) {
+            e.preventDefault();
+        }
+
+        // Disable Ctrl+S (Save), Ctrl+P (Print)
+        if (e.ctrlKey && (e.key === "s" || e.key === "p")) {
+            e.preventDefault();
+        }
+    });
 
 // Smooth Scrolling
 document.querySelectorAll('.nav-links a').forEach(anchor => {
