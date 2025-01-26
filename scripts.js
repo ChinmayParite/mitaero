@@ -7,7 +7,7 @@ document.querySelector('.hamburger-menu').addEventListener('click', () => {
 // Disable Right-Click
 document.addEventListener("contextmenu", (event) => {
     event.preventDefault(); // Prevent the context menu from appearing
-    alert("Right-click is disabled on this site."); // Optional message to users
+    
 });
 
 // Disable Keyboard Shortcuts for DevTools
