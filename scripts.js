@@ -4,23 +4,33 @@ document.querySelector('.hamburger-menu').addEventListener('click', () => {
     navLinks.classList.toggle('active');
 });
 
-    document.addEventListener("contextmenu", (e) => e.preventDefault());
- document.addEventListener("keydown", function (e) {
-        // Disable F12
-        if (e.key === "F12") {
-            e.preventDefault();
-        }
+// Disable Right-Click
+document.addEventListener("contextmenu", (event) => {
+    event.preventDefault(); // Prevent the context menu from appearing
+    alert("Right-click is disabled on this site."); // Optional message to users
+});
 
-        // Disable Ctrl+Shift+I (DevTools), Ctrl+U (View Source), Ctrl+Shift+J (Console)
-        if (e.ctrlKey && (e.key === "i" || e.key === "u" || e.key === "j")) {
-            e.preventDefault();
-        }
+// Disable Keyboard Shortcuts for DevTools
+document.addEventListener("keydown", (event) => {
+    // Disable F12 (DevTools)
+    if (event.key === "F12") {
+        event.preventDefault();
+    }
 
-        // Disable Ctrl+S (Save), Ctrl+P (Print)
-        if (e.ctrlKey && (e.key === "s" || e.key === "p")) {
-            e.preventDefault();
-        }
-    });
+    // Disable Ctrl+Shift+I (Inspect), Ctrl+Shift+J (Console), Ctrl+U (View Source)
+    if (
+        (event.ctrlKey && event.shiftKey && (event.key === "I" || event.key === "J")) ||
+        (event.ctrlKey && event.key === "U")
+    ) {
+        event.preventDefault();
+    }
+
+    // Disable Ctrl+S (Save) and Ctrl+P (Print)
+    if (event.ctrlKey && (event.key === "S" || event.key === "P")) {
+        event.preventDefault();
+    }
+});
+
 
 // Smooth Scrolling
 document.querySelectorAll('.nav-links a').forEach(anchor => {
