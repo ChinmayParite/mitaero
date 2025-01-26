@@ -12,6 +12,11 @@
     --scrollbar-track: #F1F1F1; /* Scrollbar Track */
 }
 
+/* Hide scrollbar for Webkit-based browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    display: none;
+}
+
 /* General Styles */
 body {
     font-family: Arial, sans-serif;
@@ -19,31 +24,13 @@ body {
     padding: 0;
     box-sizing: border-box;
     background-color: var(--bg-color);
-    scrollbar-width: thin; /* For Firefox */
     scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track); /* For Firefox */
+    scrollbar-width: none; /* Hides the scrollbar */
+    -ms-overflow-style: none; /* Disables the scrollbar */
 }
 
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
-}
-
-/* Apply custom scrollbar for Webkit-based browsers */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--scrollbar-track);
-    border-radius: 0px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(to bottom, var(--primary-light), var(--primary-dark)); /* Gradient */
-    border-radius: 6px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(to bottom, var(--primary-hover-light), var(--primary-hover-dark));
 }
 
 /* Top Nav for Crowdfunding */
@@ -236,56 +223,194 @@ h1 {
     font-size: 40px;
     margin-left: -100px;
     font-weight: bold;
+    font-family: 'Nunito', sans-serif;
 }
 
 span {
     color: var(--primary-light);
 }
 
-/* Projects Section */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+/* About Section */
+#about {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
     padding: 20px;
+    background: url('assests/about.JPG');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
 }
 
-.project-card {
-    padding: 20px;
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
+#about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    z-index: 1;
 }
 
-.project-card:hover {
-    transform: translateY(-10px);
+#about > * {
+    position: relative;
+    z-index: 2;
 }
+
+.aboutus h2 {
+    font-size: 3.5rem; /* Responsive font size */
+    color: var(--text-light);
+    margin-left: -850px;
+    margin-top: 50px;
+}
+
+.aboutus p {
+    font-size: 1.2rem; /* Adjusted for readability */
+    max-width: 1100px; /* Center content with limited width */
+    margin: 0 auto 30px; /* Center and add spacing below */
+    line-height: 1.8;
+    color: var(--text-light);
+    text-align: justify; /* Neat paragraph alignment */
+    margin-top: 50px;
+}
+
+.supportus {
+    margin-top: 70px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.supportus h3 {
+    display: inline-block;
+    background-color: #184aae; /* Button background */
+    color: white; /* Text color */
+    padding: 12px 25px;
+    border-radius: 8px; /* Smooth corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    font-size: 1.2rem; /* Button font size */
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-align: center;
+}
+
+.supportus h3:hover {
+    transform: scale(1.1); /* Slight hover zoom */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+}
+
 
 /* Footer */
 footer {
-    background-color: var(--primary-hover-light);
+    background-color: var(--primary-hover-dark);
     color: var(--text-light);
     text-align: center;
-    padding: 10px 0;
+    padding: 20px 0;
+    position: relative;
 }
 
-/* Responsive Design */
+footer img {
+    width: 70px; /* Adjust the size as needed */
+    height: 70px; /* Keep it square for the circle shape */
+    border-radius: 50%; /* Makes the image circular */
+    border: 2px solid var(--text-light); /* Optional: Add a border around the circle */
+    margin-top: 10px; /* Space between the content and the image */
+    margin-left: -1300px;
+}
+
+.footy{
+    margin-top: -80px;
+}
+
+.footy p{
+    line-height: 8px;
+    text-align: left;
+    margin-left: 170px;
+    font-size: 17px;
+}
+
+.social-media {
+    margin-top: -100px;
+    margin-left: 1100px;
+}
+
+.social-media a {
+    text-decoration: none; /* Removes underline */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.8rem;
+    height: 2.8rem;
+    background: transparent;
+    border: 0.2rem solid var(--primary-light);
+    border-radius: 50%;
+    font-size: 1.8rem;
+    color: var(--primary-light);
+    margin: 0 0.5rem;
+    transition: 0.3s ease-in-out;
+    margin-top: -10px;
+}
+
+.social-media a:hover {
+    background: var(--primary-light);
+    color: var(--primary-hover-dark);
+    box-shadow: 0 0 1rem var(--primary-light);
+    transform: scale(1.1);
+}
+
+.social-media p{
+   margin-right: 7px;
+    font-weight: 800;
+    font-size: 21px;
+}
+
+/* Responsive Design for Navbar */
 @media (max-width: 768px) {
-    .hero-section {
+    nav {
         flex-direction: column;
-        text-align: center;
+        align-items: flex-start;
+        background-color: var(--primary-dark); /* Set a background color for the mobile navbar */
     }
 
-    .cta-buttons button {
+    .nav-links {
+        flex-direction: column;
         width: 100%;
+    }
+
+    .nav-links li {
         margin: 10px 0;
     }
+
+    .nav-links a {
+        font-size: 20px;
+        padding: 10px;
+        width: 100%;
+        text-align: left;
+    }
+
+    .hamburger-menu {
+        display: flex; /* Show hamburger menu on small screens */
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
 }
+
 
 /* Sponsors section*/
 
 .sponsors {
+    position: relative; /* Needed for the pseudo-element to work properly */
     height: 100vh;
     display: flex;
     align-items: center;
@@ -298,6 +423,22 @@ footer {
     background-repeat: no-repeat;
 }
 
+.sponsors::before {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    z-index: 1; /* Places it below the content but above the background */
+}
+
+.sponsors > * {
+    position: relative; /* Ensures the content appears above the black pane */
+    z-index: 2;
+}
+
 .sponsors-content {
     max-width: 70%;
     text-align: left;
@@ -307,13 +448,14 @@ footer {
 
 .sponsors-content h1{
     font-size: 50px;
-    margin-top: 200px;
+    margin-top: 250px;
 }
 
 .sponsors-content p{
-    margin-top: 70px;
+    margin-top: 100px;
     margin-left: -140px;
     font-size: 18px;
+    line-height: 30px;
 }
 
 .sponsors-content h2{
@@ -326,13 +468,13 @@ footer {
     background-color: var(--primary-dark);
     max-width: 100%;
     align-items: center;
-    margin-top: 170px;
+    margin-top: 10px;
 }
 
 .our-sponsors h1 {
     font-size: 3.5rem;
     color: var(--scrollbar-track);
-    margin-bottom: 1.5rem;
+    margin-bottom: 50px;
     margin-left: 30px;
 }
 
@@ -384,4 +526,180 @@ footer {
     background-color: var(--primary-dark);
 }
 
+.slider-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Adjust space between image and text */
+    padding: 20px;
+    margin-top: 50px;
+    margin-left: -360px;
+}
+
+.image img {
+    width: 620px;
+    height: auto;
+    border-radius: 4px;
+    flex-shrink: 0; /* Prevent the image from resizing */
+    margin-left: -100px;
+    transition: transform 0.3s ease, filter 0.3s ease; /* Smooth animation for hover */
+}
+
+.image img:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    filter: brightness(1.2); /* Brighten the image slightly */
+}
+
+.text-content {
+    max-width: 600px; /* Constrain paragraph width */
+    color: var(--text-light); /* Replace with your preferred text color variable or specific color */
+    font-size: 19px; /* Adjust for readability */
+    line-height: 1.6;
+    text-align: left;
+    margin-left: 50px;
+    margin-top: -180px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.image h2{
+    margin-top: -480px;
+}
+
+/* Crowdfunding Link Style */
+.crowdfunding-link {
+    font-size: 17.5px;
+    text-decoration: none;
+    color: var(--primary-dark);
+    transition: all 0.3s ease;
+}
+
+.crowdfunding-link:hover {
+    color: var(--primary-hover-light);
+    font-weight: bold;
+}
+
+#funding {
+    position: relative; /* Needed for the pseudo-element to work properly */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--text-light);
+    padding: 20px;
+    background: url('assests/wallpaperflare.com_wallpaper.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#funding::before {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    z-index: 1; /* Places it below the content but above the background */
+}
+
+#funding > * {
+    position: relative; /* Ensures the content appears above the black pane */
+    z-index: 2;
+}
+
+#funding h1{
+    margin-top: -370px;
+    margin-left: 100px;
+    font-size: 69px;
+}
+
+#funding p{
+    margin-left:-450px;
+    margin-top: 150px;
+    margin-right: 69px;
+    text-align: left;
+    line-height: 28px;
+    font-family:'Nunito';
+    font-size: 18px;
+    color:seashell;
+    font-weight: 600;
+}
+
+span1{
+    color:var(--primary-light);
+    font-size: 19px;
+    font-weight: 700;
+}
+
+#funding1 {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    color: var(--text-light);
+    padding: 20px;
+    background: url('assests/wallpaperflare.com_wallpaper\ \(1\).jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#funding1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    z-index: 1;
+}
+
+#funding1 > * {
+    position: relative;
+    z-index: 2;
+    text-align: center; /* Centers text content */
+}
+
+#funding1 h2 {
+    font-size: 55px;
+    margin-bottom: 20px; /* Adds spacing between heading and paragraph */
+    margin-top: 50px;
+}
+
+#funding1 h3 {
+    font-size: 34px;
+    margin-bottom: 20px; /* Adds spacing between heading and paragraph */
+    margin-top: 50px;
+}
+
+#funding1 p {
+  /* Adjusts spacing between lines in the paragraph */
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+    color: seashell;
+    font-weight: 600;
+    max-width: 800px; /* Restricts width for better readability */
+    line-height: 17px;
+}
+
+#funding1 img{
+    width: 230px;
+    height: 280px;
+    border-radius: 5px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+#funding1 img:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.3);
+}
+
+#funding1 img:hover {
+    transform: scale(1.1); /* Add zoom effect on hover */
+}
 
