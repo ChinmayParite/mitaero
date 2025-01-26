@@ -14,7 +14,7 @@ document.querySelectorAll('.nav-links a').forEach(anchor => {
     });
 });
 
-//document.addEventListener('contextmenu', (event) => event.preventDefault());
+document.addEventListener('contextmenu', (event) => event.preventDefault());
 
 document.addEventListener('keydown', (event) => {
     if (
@@ -32,6 +32,7 @@ dropdown.addEventListener('click', () => {
     dropdownContent.classList.toggle('show');
 });
 
+//home
 document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', function () {
         var nav = document.querySelector('nav');
@@ -42,6 +43,43 @@ document.addEventListener('DOMContentLoaded', function () {
         var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--accent-color').trim();
 
         if (homeSectionBottom <= 100) {
+            nav.style.backgroundColor = accentColor;  // Apply accent color from the CSS variable
+        } else {
+            nav.style.backgroundColor = 'transparent';  // Set background to transparent
+        }
+    });
+});
+
+
+//funding
+document.addEventListener('DOMContentLoaded', function () {
+    window.addEventListener('scroll', function () {
+        var nav = document.querySelector('nav');
+        var fundSection = document.querySelector('.fund');
+        var fundSectionBottom = fundSection.getBoundingClientRect().bottom;
+
+        // Get the value of the CSS variable '--accent-color'
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--accent-color').trim();
+
+        if (fundSectionBottom <= 100) {
+            nav.style.backgroundColor = accentColor;  // Apply accent color from the CSS variable
+        } else {
+            nav.style.backgroundColor = 'transparent';  // Set background to transparent
+        }
+    });
+});
+
+//sponsors
+document.addEventListener('DOMContentLoaded', function () {
+    window.addEventListener('scroll', function () {
+        var nav = document.querySelector('nav');
+        var sponsorsSection = document.querySelector('.sponsors');
+        var sponsorsSectionBottom = sponsorsSection.getBoundingClientRect().bottom;
+
+        // Get the value of the CSS variable '--accent-color'
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--accent-color').trim();
+
+        if (sponsorsSectionBottom <= 100) {
             nav.style.backgroundColor = accentColor;  // Apply accent color from the CSS variable
         } else {
             nav.style.backgroundColor = 'transparent';  // Set background to transparent
@@ -72,4 +110,16 @@ document.querySelector('a[href="index.html"]').addEventListener('click', functio
 document.querySelector('a[href="achievements.html"]').addEventListener('click', function(e) {
     e.preventDefault(); // Prevent the default link behavior
     window.location.href = 'achievements.html'; // Navigate to sponsors.html
+});
+
+// Select the Sponsors link and add an event listener
+document.querySelector('a[href="team.html"]').addEventListener('click', function(e) {
+    e.preventDefault(); // Prevent the default link behavior
+    window.location.href = 'team.html'; // Navigate to sponsors.html
+});
+
+// Select the Sponsors link and add an event listener
+document.querySelector('a[href="aero-alumni.html"]').addEventListener('click', function(e) {
+    e.preventDefault(); // Prevent the default link behavior
+    window.location.href = 'aero-alumni.html'; // Navigate to sponsors.html
 });
